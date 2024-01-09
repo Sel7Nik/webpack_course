@@ -1,0 +1,13 @@
+.container {
+  margin: 0 auto;
+  width: 800px;
+}
+
+
+.btn {
+  color: whitesmoke;
+  background: red;
+  padding: 15px 35px;
+  border-radius: 15px;
+  border: none;
+}
