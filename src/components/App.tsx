@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import classes from './App.module.scss'
 import { Link, Outlet } from 'react-router-dom'
+import About from '@/pages/About/About'
 
 export const App = () => {
 
@@ -18,9 +19,10 @@ export const App = () => {
           <h1>Title</h1>
           <h2>{count}</h2>
           <button className={classes.btn} onClick={increment}>Counter</button>
+          {/* <Outlet /> */}
+          <About />
         </div>
       </header>
-      <Outlet />
     </div>
   )
 }
