@@ -16,6 +16,7 @@ export const App = () => {
   return (
     <div>
       <header className={classes.header}>
+        <h1 >platform={__PLATFORM__}</h1>
         <div className={classes.container}>
           <div className="AvatarPng_Jpg">
             <img width={50} className="imgAvatarPng" src={avatarPng} alt="img-png" />
@@ -24,7 +25,8 @@ export const App = () => {
           </div>
           <div className="ImagesSvg">
 
-            <Calendar fill={'red'} width={100} height={100} />
+            <Calendar fill={'green'} width={100} height={100} />
+            <Calendar style={{ color: 'orange' }} width={100} height={100} />
             <Image style={{ color: 'orange' }} width={100} height={100} />
 
           </div>
