@@ -9,7 +9,8 @@
     "build:prod-analyze": "webpack --env mode=production --analyze",
     "build:prod-analyzer": "webpack --env mode=production --env analyzer=true",
     "build:mobile": "webpack --env mode=production --env platform=mobile",
-    "build:desktop": "webpack --env mode=production --env platform=desktop"
+    "build:desktop": "webpack --env mode=production --env platform=desktop",
+    "typecheck": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "@types/webpack-bundle-analyzer": "^4.6.3",
     "@types/webpack-dev-server": "^4.7.2",
     "css-loader": "^6.8.1",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.7.6",
     "sass": "^1.69.7",

@@ -60,6 +60,9 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
     use: [
       {
         loader: 'ts-loader',
+        options: {
+          transpileOnly: true
+        }
       }
     ]
   }

@@ -1,47 +1,34 @@
-import React, { useState } from 'react'
-import classes from './App.module.scss'
-import { Link, Outlet } from 'react-router-dom'
-import About from '@/pages/About/About'
-import avatarPng from '@/assets/avatar.png'
-import avatarJpg from '@/assets/avatar.jpg'
-import Calendar from '@/assets/calendar.svg'
-import Image from '@/assets/app-image.svg'
+import React
+  from 'react'
+import { Header } from './header/Header'
+
+
+function TODO(a: number) {
+  a++
+  console.log('message TODO function')
+}
+
 
 
 export const App = () => {
 
-  const [count, setCount] = useState<number>(10)
+  TODO(51235);
 
-  const increment = () => setCount(prev => prev - 1)
+  // if (__PLATFORM__ === 'desktop') {
+  //   return <div>ISDESKTOPPLATFORM</div>
+  // }
+
+  // if (__PLATFORM__ === 'mobile') {
+  //   return <div>ISMOBILEPLATFORM</div>
+  // }
+
+  // if (__ENV__ === 'development') {
+  //   // addDevtools()
+  // }
+
   return (
     <div>
-      <header className={classes.header}>
-        <h1 >platform={__PLATFORM__}</h1>
-        <div className={classes.container}>
-          <div className="AvatarPng_Jpg">
-            <img width={50} className="imgAvatarPng" src={avatarPng} alt="img-png" />
-            <img width={100} className="imgAvatarJpg" src={avatarJpg} alt="img-jpg" />
-
-          </div>
-          <div className="ImagesSvg">
-
-            <Calendar fill={'green'} width={100} height={100} />
-            <Calendar style={{ color: 'orange' }} width={100} height={100} />
-            <Image style={{ color: 'orange' }} width={100} height={100} />
-
-          </div>
-
-          <Link to={'/about'}>about</Link>
-          <br />
-          <Link to={'/shop'}>shop</Link>
-          <br />
-          <h1>Title</h1>
-          <h2>{count}</h2>
-          <button className={classes.btn} onClick={increment}>Counter</button>
-          {/* <Outlet /> */}
-          <About />
-        </div>
-      </header>
+      <Header />
     </div>
   )
 }

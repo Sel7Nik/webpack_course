@@ -3,10 +3,6 @@ import React from 'react';
 const Shop = () => {
   return (
     <h1>
-      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam beatae ex maiores quos
-        repudiandae, ullam. Ad corporis deleniti dolorem id natus necessitatibus quas repellat reprehenderit
-        tempora ut velit, voluptatem.
-      </div>
       <div>At atque culpa cumque dicta dolorem eius enim, error eveniet excepturi, iure minima minus nisi sed
         tempora vel? Aliquid eum ex excepturi fuga iste iure maxime non omnis quam voluptatem.
       </div>
