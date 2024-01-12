@@ -8,6 +8,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     port: 3033,
     open: true,
     // если раздавать статику через nginx То надо делать проксирование на Index.html
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true
   }
 }

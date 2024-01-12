@@ -4,6 +4,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import webpack, { Configuration, DefinePlugin } from "webpack";
 import { BuildOptions } from "./types/types";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 export function buildPlugins({ mode, paths, analyzer, platform }: BuildOptions): Configuration['plugins'] {
 
@@ -22,7 +23,12 @@ export function buildPlugins({ mode, paths, analyzer, platform }: BuildOptions):
 
   ]
 
-  if (isDev) { plugins.push(new webpack.ProgressPlugin(), new ForkTsCheckerWebpackPlugin()) }
+  if (isDev) {
+    plugins.push(
+      new webpack.ProgressPlugin(),
+      new ForkTsCheckerWebpackPlugin(),
+      new ReactRefreshWebpackPlugin())
+  }
 
   if (isProd) {
     plugins.push(new MiniCssExtractPlugin({
