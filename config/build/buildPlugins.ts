@@ -5,7 +5,8 @@ import webpack, { Configuration, DefinePlugin } from "webpack";
 import { BuildOptions } from "./types/types";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
-
+import path from "path";
+import CopyPlugin from 'copy-webpack-plugin'
 export function buildPlugins({ mode, paths, analyzer, platform }: BuildOptions): Configuration['plugins'] {
 
   const isDev = mode === 'development'
@@ -14,7 +15,8 @@ export function buildPlugins({ mode, paths, analyzer, platform }: BuildOptions):
   const plugins: Configuration['plugins'] = [
     new HtmlWebpackPlugin({
       // template: path.resolve(__dirname, 'public', 'index.html'),
-      template: paths.html
+      template: paths.html,
+      favicon: path.resolve(paths.public, 'favicon.ico')
     }),
     new DefinePlugin({
       __PLATFORM__: JSON.stringify(platform),
@@ -34,14 +36,24 @@ export function buildPlugins({ mode, paths, analyzer, platform }: BuildOptions):
     plugins.push(new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css'
-    }))
-    if (analyzer) {
+    })),
+      plugins.push(
+        new CopyPlugin({
+          patterns: [
+            { from: path.resolve(paths.public, 'locales'), to: path.resolve(paths.output, 'locales') },
 
-      plugins.push(new BundleAnalyzerPlugin())
-    }
+          ],
+        }),
+      )
+
+
+
+
   }
 
-
+  if (analyzer) {
+    plugins.push(new BundleAnalyzerPlugin())
+  }
 
   return plugins
 
